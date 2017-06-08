@@ -21,7 +21,12 @@ I wish to generate a playable version of this card game, then present this softw
 I hereby ask anyone who finds this project, not to divulge it in any way.
 
 
+
+
 Eric Bastian Ramírez Santis
+
 E-mail: eramirezsantis@gmail.com
+
 Computer Engineering student
+
 DuocUC, branch Melipilla
