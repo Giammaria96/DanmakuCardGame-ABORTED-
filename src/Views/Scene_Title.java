@@ -3,11 +3,11 @@ package Views;
 import Controller.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
 import static java.awt.Font.BOLD;
@@ -35,7 +35,7 @@ public class Scene_Title {
         LB3.setAlignment(Pos.CENTER);
         LB4.setAlignment(Pos.CENTER);
         LB5.setAlignment(Pos.CENTER);
-        Layout_Column.getChildren().addAll(new Label(),LB1,LB2,LB3,LB4,LB5);
+        Layout_Column.getChildren().addAll(new Label(), LB1, LB2, LB3, LB4, LB5);
 
 
         Button BNew_Game = new Button("New Game");
@@ -60,23 +60,22 @@ public class Scene_Title {
         BHowTo.setFont(new Font("Comic Sans MS", BOLD));
         CDB.setFont(new Font("Comic Sans MS", BOLD));
         BSetup.setFont(new Font("Comic Sans MS", BOLD));
-        BNew_Game.setStyle( "-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
-        BMP.setStyle(       "-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
-        BHowTo.setStyle(    "-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
-        CDB.setStyle(       "-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
-        BSetup.setStyle(    "-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png\')");
-        BNew_Game.setOnAction(e-> Main.setNewScene(Scene_PlaySetup.scene()));
-        CDB.setOnAction(e-> Main.setNewScene(Scene_CardDatabase.scene()));
-        BSetup.setOnAction(e-> Main.setNewScene(Scene_Setup.scene()));
+        BNew_Game.setStyle("-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
+        BMP.setStyle("-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
+        BHowTo.setStyle("-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
+        CDB.setStyle("-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png')");
+        BSetup.setStyle("-fx-text-fill: blueviolet; -fx-font-size: 30; -fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent; -fx-background-image: url('/images/Buttons/MMB.png\')");
+        BNew_Game.setOnAction(e -> Main.setNewScene(Scene_PlaySetup.scene()));
+        CDB.setOnAction(e -> Main.setNewScene(Scene_CardDatabase.scene()));
+        BSetup.setOnAction(e -> Main.setNewScene(Scene_Setup.scene()));
 
 
-        LB1.getChildren().addAll(BNew_Game,new Label("  "));
-        LB2.getChildren().addAll(new Label("  "),BMP);
-        LB3.getChildren().addAll(BHowTo,new Label("  "));
+        LB1.getChildren().addAll(BNew_Game, new Label("  "));
+        LB2.getChildren().addAll(new Label("  "), BMP);
+        LB3.getChildren().addAll(BHowTo, new Label("  "));
         LB4.getChildren().addAll(new Label("  "), CDB);
         LB5.getChildren().addAll(BSetup, new Label("  "));
 
-        Scene scene = new Scene(BackgroundLayout);
-        return scene;
+        return new Scene(BackgroundLayout);
     }
 }

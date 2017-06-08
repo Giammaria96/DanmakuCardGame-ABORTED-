@@ -18,13 +18,13 @@ public class PopUp_Error {
         window.setResizable(false);
         window.setWidth(400);
         window.setHeight(150);
-        Label label = new Label(Message+"\n ");
+        Label label = new Label(Message + "\n ");
         label.setFont(new Font("Arial", 16));
 
 
         Button Bok = new Button("Ok");
         Bok.setPrefWidth(75);
-        Bok.setOnAction(e->window.close());
+        Bok.setOnAction(e -> window.close());
 
         VBox MainLayout = new VBox(10);
         HBox SecondaryLayout = new HBox(15);

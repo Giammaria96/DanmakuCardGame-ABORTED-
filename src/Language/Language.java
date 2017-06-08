@@ -7,63 +7,64 @@ public class Language {
     //<editor-fold defaultstate="collapsed" desc="Variable declaration">
     public Language Lang;
     public String
-    Alice1,Alice2,Alice3,Alice4,Alice5,Alice6, Cirno1,Cirno2,Cirno3,Cirno4,Cirno5,Cirno6,
-    Reimu1,Reimu2,Reimu3,Reimu4,Reimu5,Reimu6, Byaku1,Byaku2,Byaku3,Byaku4,Byaku5,Byaku6,
-    Tensh1,Tensh2,Tensh3,Tensh4,Tensh5,Tensh6, China1,China2,China3,China4,China5,China6,
-    Suika1,Suika2,Suika3,Suika4,Suika5,Suika6, Sakuy1,Sakuy2,Sakuy3,Sakuy4,Sakuy5,Sakuy6,
-    Keine1,Keine2,Keine3,Keine4,Keine5,Keine6, Kappa1,Kappa2,Kappa3,Kappa4,Kappa5,Kappa6,
-    Yuuka1,Yuuka2,Yuuka3,Yuuka4,Yuuka5,Yuuka6, Maria1,Maria2,Maria3,Maria4,Maria5,Maria6,
-    Sanae1,Sanae2,Sanae3,Sanae4,Sanae5,Sanae6, Sator1,Sator2,Sator3,Sator4,Sator5,Sator6,
-    Youmu1,Youmu2,Youmu3,Youmu4,Youmu5,Youmu6, Futo_1,Futo_2,Futo_3,Futo_4,Futo_5,Futo_6,
-    Patch1,Patch2,Patch3,Patch4,Patch5,Patch6, Inaba1,Inaba2,Inaba3,Inaba4,Inaba5,Inaba6,
-    Okuu_1,Okuu_2,Okuu_3,Okuu_4,Okuu_5,Okuu_6, Remil1,Remil2,Remil3,Remil4,Remil5,Remil6,
-    Ayaya1,Ayaya2,Ayaya3,Ayaya4,Ayaya5,Ayaya6, Miko_1,Miko_2,Miko_3,Miko_4,Miko_5,Miko_6,
-    Eirin1,Eirin2,Eirin3,Eirin4,Eirin5,Eirin6, Yukar1,Yukar2,Yukar3,Yukar4,Yukar5,Yukar6,
+            Alice1, Alice2, Alice3, Alice4, Alice5, Alice6, Cirno1, Cirno2, Cirno3, Cirno4, Cirno5, Cirno6,
+            Reimu1, Reimu2, Reimu3, Reimu4, Reimu5, Reimu6, Byaku1, Byaku2, Byaku3, Byaku4, Byaku5, Byaku6,
+            Tensh1, Tensh2, Tensh3, Tensh4, Tensh5, Tensh6, China1, China2, China3, China4, China5, China6,
+            Suika1, Suika2, Suika3, Suika4, Suika5, Suika6, Sakuy1, Sakuy2, Sakuy3, Sakuy4, Sakuy5, Sakuy6,
+            Keine1, Keine2, Keine3, Keine4, Keine5, Keine6, Kappa1, Kappa2, Kappa3, Kappa4, Kappa5, Kappa6,
+            Yuuka1, Yuuka2, Yuuka3, Yuuka4, Yuuka5, Yuuka6, Maria1, Maria2, Maria3, Maria4, Maria5, Maria6,
+            Sanae1, Sanae2, Sanae3, Sanae4, Sanae5, Sanae6, Sator1, Sator2, Sator3, Sator4, Sator5, Sator6,
+            Youmu1, Youmu2, Youmu3, Youmu4, Youmu5, Youmu6, Futo_1, Futo_2, Futo_3, Futo_4, Futo_5, Futo_6,
+            Patch1, Patch2, Patch3, Patch4, Patch5, Patch6, Inaba1, Inaba2, Inaba3, Inaba4, Inaba5, Inaba6,
+            Okuu_1, Okuu_2, Okuu_3, Okuu_4, Okuu_5, Okuu_6, Remil1, Remil2, Remil3, Remil4, Remil5, Remil6,
+            Ayaya1, Ayaya2, Ayaya3, Ayaya4, Ayaya5, Ayaya6, Miko_1, Miko_2, Miko_3, Miko_4, Miko_5, Miko_6,
+            Eirin1, Eirin2, Eirin3, Eirin4, Eirin5, Eirin6, Yukar1, Yukar2, Yukar3, Yukar4, Yukar5, Yukar6,
 
-    Anti__1,Anti__2,Anti__3, Challe1,Challe2,Challe3, Exboss1,Exboss2,Exboss3, ExbosR1,ExbosR2,ExbosR3,
-    Exmidb1,Exmidb2,Exmidb3, FinalB1,FinalB2,FinalB3, Heroin1,Heroin2,Heroin3, OTPart1,OTPart2,OTPart3,
-    Partne1,Partne2,Partne3, Phanto1,Phanto2,Phanto3, Rival_1,Rival_2,Rival_3, STGBOS1,STGBOS2,STGBOS3,
-    TPhant1,TPhant2,TPhant3,
+    Anti__1, Anti__2, Anti__3, Challe1, Challe2, Challe3, Exboss1, Exboss2, Exboss3, ExbosR1, ExbosR2, ExbosR3,
+            Exmidb1, Exmidb2, Exmidb3, FinalB1, FinalB2, FinalB3, Heroin1, Heroin2, Heroin3, OTPart1, OTPart2, OTPart3,
+            Partne1, Partne2, Partne3, Phanto1, Phanto2, Phanto3, Rival_1, Rival_2, Rival_3, STGBOS1, STGBOS2, STGBOS3,
+            TPhant1, TPhant2, TPhant3,
 
-    UP1___1,UP1___2, BOMB__1,BOMB__2, Caspca1,Caspca2, Focus_1,Focus_2,
-    Graze_1,Graze_2, Grimoi1,Grimoi2, Kourin1,Kourin2, Lassho1,Lassho2,
-    Laswor1,Laswor2, Maspla1,Maspla2, Melee_1,Melee_2, Mihakk1,Mihakk2,
-    Party_1,Party_2, Power_1,Power_2, Sealaw1,Sealaw2, Shoot_1,Shoot_2,
-    Sosusc1,Sosusc2, Spiatk1,Spiatk2, Stopwa1,Stopwa2, Sunabo1,Sunabo2,
-    Tempes1,Tempes2, Voile_1,Voile_2, Borrow1,Borrow2,
+    UP1___1, UP1___2, BOMB__1, BOMB__2, Caspca1, Caspca2, Focus_1, Focus_2,
+            Graze_1, Graze_2, Grimoi1, Grimoi2, Kourin1, Kourin2, Lassho1, Lassho2,
+            Laswor1, Laswor2, Maspla1, Maspla2, Melee_1, Melee_2, Mihakk1, Mihakk2,
+            Party_1, Party_2, Power_1, Power_2, Sealaw1, Sealaw2, Shoot_1, Shoot_2,
+            Sosusc1, Sosusc2, Spiatk1, Spiatk2, Stopwa1, Stopwa2, Sunabo1, Sunabo2,
+            Tempes1, Tempes2, Voile_1, Voile_2, Borrow1, Borrow2,
 
-    Crioffa1,Crioffa2, Crotohi1,Crotohi2,
-    Endpart1,Endpart2, Eternig1,Eternig2,
-    Fiimreq1,Fiimreq2, Grbawea1,Grbawea2,
-    Grfawar1,Grfawar2, Overdri1,Overdri2,
-    Reblhel1,Reblhel2, Saayblo1,Saayblo2,
-    Scwerha1,Scwerha2, Sprsnow1,Sprsnow2,
-    Unfaobj1,Unfaobj2, Votomak1,Votomak2,
-    Wordesi1,Wordesi2, Lilwhit1,Lilwhit2,
+    Crioffa1, Crioffa2, Crotohi1, Crotohi2,
+            Endpart1, Endpart2, Eternig1, Eternig2,
+            Fiimreq1, Fiimreq2, Grbawea1, Grbawea2,
+            Grfawar1, Grfawar2, Overdri1, Overdri2,
+            Reblhel1, Reblhel2, Saayblo1, Saayblo2,
+            Scwerha1, Scwerha2, Sprsnow1, Sprsnow2,
+            Unfaobj1, Unfaobj2, Votomak1, Votomak2,
+            Wordesi1, Wordesi2, Lilwhit1, Lilwhit2,
 
-    Yes,No,Confirm, chslang,conlang,RoleCar,MaDeCar,InciCar,CharCar,
-    Heroine,StageBoss,ExtraBoss,Partner,AddLily, NofRolesError,
-    CharacterChoice, step1,step2,step3,step4,step5,
+    Yes, No, Confirm, chslang, conlang, RoleCar, MaDeCar, InciCar, CharCar,
+            Heroine, StageBoss, ExtraBoss, Partner, AddLily, NofRolesError,
+            CharacterChoice, step1, step2, step3, step4, step5,
 
     PlayerStats, infinite, ViewStats, EndTurn,
             Back, SandB, Exit, SandE,
             language;
 
     public String[] NPlayer;
+
     //</editor-fold>
-    public Language(){
+    public Language() {
         String Langu;
-        try{
+        try {
             Langu = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/Controller/SETUP.dat"))).readLine();
+        } catch (Exception e) {
+            Langu = "English";
         }
-        catch(Exception e){
-            Langu="English";
-        }
-        if      ("Spanish".equals(Langu))       Lang = new Spanish();
-        else                                    Lang = new English();
+        if ("Spanish".equals(Langu)) Lang = new Spanish();
+        else Lang = new English();
     }
+
     //<editor-fold defaultstate="collapsed" desc="For Children usage ONLY">
-    public  Language(String... List) {
+    public Language(String... List) {
         Alice1 = List[0];
         Alice2 = List[1];
         Alice3 = List[2];
@@ -334,7 +335,7 @@ public class Language {
         MaDeCar = List[267];
         InciCar = List[268];
         CharCar = List[269];
-        NPlayer = new String[]{List[270],List[271],List[272],List[273],List[274]};
+        NPlayer = new String[]{List[270], List[271], List[272], List[273], List[274]};
         Heroine = List[275];
         StageBoss = List[276];
         ExtraBoss = List[277];
@@ -359,104 +360,149 @@ public class Language {
     }
     //</editor-fold>
 
-    public void setNewLanguage(String Langu){
-        if      ("Spanish".equals(Langu))       Lang = new Spanish();
-        else                                    Lang = new English();
+    public void setNewLanguage(String Langu) {
+        if ("Spanish".equals(Langu)) Lang = new Spanish();
+        else Lang = new English();
     }
+
     /**
      * @param ID The Id of a card
      * @return a String List with the text of a specific card
      */
-    public String[] getRoleText(int ID){
-        if (1 <=ID && ID<=1)   return new String[] {Anti__1,Anti__2,Anti__3};
-        else if (2 <=ID && ID<=2)   return new String[] {Challe1,Challe2,Challe3};
-        else if (3 <=ID && ID<=3)   return new String[] {Exboss1,Exboss2,Exboss3};
-        else if (4 <=ID && ID<=4)   return new String[] {ExbosR1,ExbosR2,ExbosR3};
-        else if (5 <=ID && ID<=5)   return new String[] {Exmidb1,Exmidb2,Exmidb3};
-        else if (6 <=ID && ID<=6)   return new String[] {FinalB1,FinalB2,FinalB3};
-        else if (7 <=ID && ID<=7)   return new String[] {Heroin1,Heroin2,Heroin3};
-        else if (8 <=ID && ID<=8)   return new String[] {OTPart1,OTPart2,OTPart3};
-        else if (9 <=ID && ID<=10)  return new String[] {Partne1,Partne2,Partne3};
-        else if (11 <=ID && ID<=11) return new String[] {Phanto1,Phanto2,Phanto3};
-        else if (12 <=ID && ID<=12) return new String[] {Rival_1,Rival_2,Rival_3};
-        else if (13 <=ID && ID<=15) return new String[] {STGBOS1,STGBOS2,STGBOS3};
-        else                        return new String[] {TPhant1,TPhant2,TPhant3};
+    public String[] getRoleText(int ID) {
+        if (1 <= ID && ID <= 1) return new String[]{Anti__1, Anti__2, Anti__3};
+        else if (2 <= ID && ID <= 2) return new String[]{Challe1, Challe2, Challe3};
+        else if (3 <= ID && ID <= 3) return new String[]{Exboss1, Exboss2, Exboss3};
+        else if (4 <= ID && ID <= 4) return new String[]{ExbosR1, ExbosR2, ExbosR3};
+        else if (5 <= ID && ID <= 5) return new String[]{Exmidb1, Exmidb2, Exmidb3};
+        else if (6 <= ID && ID <= 6) return new String[]{FinalB1, FinalB2, FinalB3};
+        else if (7 <= ID && ID <= 7) return new String[]{Heroin1, Heroin2, Heroin3};
+        else if (8 <= ID && ID <= 8) return new String[]{OTPart1, OTPart2, OTPart3};
+        else if (9 <= ID && ID <= 10) return new String[]{Partne1, Partne2, Partne3};
+        else if (11 <= ID && ID <= 11) return new String[]{Phanto1, Phanto2, Phanto3};
+        else if (12 <= ID && ID <= 12) return new String[]{Rival_1, Rival_2, Rival_3};
+        else if (13 <= ID && ID <= 15) return new String[]{STGBOS1, STGBOS2, STGBOS3};
+        else return new String[]{TPhant1, TPhant2, TPhant3};
     }
-    public String[] getDeckText(int ID){
-             if ( 1 <= ID && ID <=  2) return new String[] {UP1___1,UP1___2};
-        else if ( 3 <= ID && ID <=  6) return new String[] {BOMB__1,BOMB__2};
-        else if (       7 == ID      ) return new String[] {Caspca1,Caspca2};
-        else if ( 8 <= ID && ID <= 10) return new String[] {Focus_1,Focus_2};
-        else if (11 <= ID && ID <= 22) return new String[] {Graze_1,Graze_2};
-        else if (23 <= ID && ID <= 24) return new String[] {Grimoi1,Grimoi2};
-        else if (25 <= ID && ID <= 26) return new String[] {Kourin1,Kourin2};
-        else if (      27 == ID      ) return new String[] {Lassho1,Lassho2};
-        else if (      28 == ID      ) return new String[] {Laswor1,Laswor2};
-        else if (      29 == ID      ) return new String[] {Maspla1,Maspla2};
-        else if (      30 == ID      ) return new String[] {Melee_1,Melee_2};
-        else if (      31 == ID      ) return new String[] {Mihakk1,Mihakk2};
-        else if (      32 == ID      ) return new String[] {Party_1,Party_2};
-        else if (33 <= ID && ID <= 38) return new String[] {Power_1,Power_2};
-        else if (39 <= ID && ID <= 42) return new String[] {Sealaw1,Sealaw2};
-        else if (43 <= ID && ID <= 66) return new String[] {Shoot_1,Shoot_2};
-        else if (      67 == ID      ) return new String[] {Sosusc1,Sosusc2};
-        else if (68 <= ID && ID <= 73) return new String[] {Spiatk1,Spiatk2};
-        else if (      74 == ID      ) return new String[] {Stopwa1,Stopwa2};
-        else if (75 <= ID && ID <= 76) return new String[] {Sunabo1,Sunabo2};
-        else if (      77 == ID      ) return new String[] {Tempes1,Tempes2};
-        else if (      78 == ID      ) return new String[] {Voile_1,Voile_2};
-        else                           return new String[] {Borrow1,Borrow2};
+
+    public String[] getDeckText(int ID) {
+        if (1 <= ID && ID <= 2) return new String[]{UP1___1, UP1___2};
+        else if (3 <= ID && ID <= 6) return new String[]{BOMB__1, BOMB__2};
+        else if (7 == ID) return new String[]{Caspca1, Caspca2};
+        else if (8 <= ID && ID <= 10) return new String[]{Focus_1, Focus_2};
+        else if (11 <= ID && ID <= 22) return new String[]{Graze_1, Graze_2};
+        else if (23 <= ID && ID <= 24) return new String[]{Grimoi1, Grimoi2};
+        else if (25 <= ID && ID <= 26) return new String[]{Kourin1, Kourin2};
+        else if (27 == ID) return new String[]{Lassho1, Lassho2};
+        else if (28 == ID) return new String[]{Laswor1, Laswor2};
+        else if (29 == ID) return new String[]{Maspla1, Maspla2};
+        else if (30 == ID) return new String[]{Melee_1, Melee_2};
+        else if (31 == ID) return new String[]{Mihakk1, Mihakk2};
+        else if (32 == ID) return new String[]{Party_1, Party_2};
+        else if (33 <= ID && ID <= 38) return new String[]{Power_1, Power_2};
+        else if (39 <= ID && ID <= 42) return new String[]{Sealaw1, Sealaw2};
+        else if (43 <= ID && ID <= 66) return new String[]{Shoot_1, Shoot_2};
+        else if (67 == ID) return new String[]{Sosusc1, Sosusc2};
+        else if (68 <= ID && ID <= 73) return new String[]{Spiatk1, Spiatk2};
+        else if (74 == ID) return new String[]{Stopwa1, Stopwa2};
+        else if (75 <= ID && ID <= 76) return new String[]{Sunabo1, Sunabo2};
+        else if (77 == ID) return new String[]{Tempes1, Tempes2};
+        else if (78 == ID) return new String[]{Voile_1, Voile_2};
+        else return new String[]{Borrow1, Borrow2};
     }
-    public String[] getCharacterText(int ID){
-        switch (ID){
-            case 1 : return new String[]{Alice1,Alice2,Alice3,Alice4,Alice5,Alice6};
-            case 2 : return new String[]{Cirno1,Cirno2,Cirno3,Cirno4,Cirno5,Cirno6};
-            case 3 : return new String[]{Reimu1,Reimu2,Reimu3,Reimu4,Reimu5,Reimu6};
-            case 4 : return new String[]{Byaku1,Byaku2,Byaku3,Byaku4,Byaku5,Byaku6};
-            case 5 : return new String[]{Tensh1,Tensh2,Tensh3,Tensh4,Tensh5,Tensh6};
-            case 6 : return new String[]{China1,China2,China3,China4,China5,China6};
-            case 7 : return new String[]{Suika1,Suika2,Suika3,Suika4,Suika5,Suika6};
-            case 8 : return new String[]{Sakuy1,Sakuy2,Sakuy3,Sakuy4,Sakuy5,Sakuy6};
-            case 9 : return new String[]{Keine1,Keine2,Keine3,Keine4,Keine5,Keine6};
-            case 10 : return new String[]{Kappa1,Kappa2,Kappa3,Kappa4,Kappa5,Kappa6};
-            case 11 : return new String[]{Yuuka1,Yuuka2,Yuuka3,Yuuka4,Yuuka5,Yuuka6};
-            case 12 : return new String[]{Maria1,Maria2,Maria3,Maria4,Maria5,Maria6};
-            case 13 : return new String[]{Sanae1,Sanae2,Sanae3,Sanae4,Sanae5,Sanae6};
-            case 14 : return new String[]{Sator1,Sator2,Sator3,Sator4,Sator5,Sator6};
-            case 15 : return new String[]{Youmu1,Youmu2,Youmu3,Youmu4,Youmu5,Youmu6};
-            case 16 : return new String[]{Futo_1,Futo_2,Futo_3,Futo_4,Futo_5,Futo_6};
-            case 17 : return new String[]{Patch1,Patch2,Patch3,Patch4,Patch5,Patch6};
-            case 18 : return new String[]{Inaba1,Inaba2,Inaba3,Inaba4,Inaba5,Inaba6};
-            case 19 : return new String[]{Okuu_1,Okuu_2,Okuu_3,Okuu_4,Okuu_5,Okuu_6};
-            case 20 : return new String[]{Remil1,Remil2,Remil3,Remil4,Remil5,Remil6};
-            case 21 : return new String[]{Ayaya1,Ayaya2,Ayaya3,Ayaya4,Ayaya5,Ayaya6};
-            case 22 : return new String[]{Miko_1,Miko_2,Miko_3,Miko_4,Miko_5,Miko_6};
-            case 23 : return new String[]{Eirin1,Eirin2,Eirin3,Eirin4,Eirin5,Eirin6};
-            default : return new String[]{Yukar1,Yukar2,Yukar3,Yukar4,Yukar5,Yukar6};
+
+    public String[] getCharacterText(int ID) {
+        switch (ID) {
+            case 1:
+                return new String[]{Alice1, Alice2, Alice3, Alice4, Alice5, Alice6};
+            case 2:
+                return new String[]{Cirno1, Cirno2, Cirno3, Cirno4, Cirno5, Cirno6};
+            case 3:
+                return new String[]{Reimu1, Reimu2, Reimu3, Reimu4, Reimu5, Reimu6};
+            case 4:
+                return new String[]{Byaku1, Byaku2, Byaku3, Byaku4, Byaku5, Byaku6};
+            case 5:
+                return new String[]{Tensh1, Tensh2, Tensh3, Tensh4, Tensh5, Tensh6};
+            case 6:
+                return new String[]{China1, China2, China3, China4, China5, China6};
+            case 7:
+                return new String[]{Suika1, Suika2, Suika3, Suika4, Suika5, Suika6};
+            case 8:
+                return new String[]{Sakuy1, Sakuy2, Sakuy3, Sakuy4, Sakuy5, Sakuy6};
+            case 9:
+                return new String[]{Keine1, Keine2, Keine3, Keine4, Keine5, Keine6};
+            case 10:
+                return new String[]{Kappa1, Kappa2, Kappa3, Kappa4, Kappa5, Kappa6};
+            case 11:
+                return new String[]{Yuuka1, Yuuka2, Yuuka3, Yuuka4, Yuuka5, Yuuka6};
+            case 12:
+                return new String[]{Maria1, Maria2, Maria3, Maria4, Maria5, Maria6};
+            case 13:
+                return new String[]{Sanae1, Sanae2, Sanae3, Sanae4, Sanae5, Sanae6};
+            case 14:
+                return new String[]{Sator1, Sator2, Sator3, Sator4, Sator5, Sator6};
+            case 15:
+                return new String[]{Youmu1, Youmu2, Youmu3, Youmu4, Youmu5, Youmu6};
+            case 16:
+                return new String[]{Futo_1, Futo_2, Futo_3, Futo_4, Futo_5, Futo_6};
+            case 17:
+                return new String[]{Patch1, Patch2, Patch3, Patch4, Patch5, Patch6};
+            case 18:
+                return new String[]{Inaba1, Inaba2, Inaba3, Inaba4, Inaba5, Inaba6};
+            case 19:
+                return new String[]{Okuu_1, Okuu_2, Okuu_3, Okuu_4, Okuu_5, Okuu_6};
+            case 20:
+                return new String[]{Remil1, Remil2, Remil3, Remil4, Remil5, Remil6};
+            case 21:
+                return new String[]{Ayaya1, Ayaya2, Ayaya3, Ayaya4, Ayaya5, Ayaya6};
+            case 22:
+                return new String[]{Miko_1, Miko_2, Miko_3, Miko_4, Miko_5, Miko_6};
+            case 23:
+                return new String[]{Eirin1, Eirin2, Eirin3, Eirin4, Eirin5, Eirin6};
+            default:
+                return new String[]{Yukar1, Yukar2, Yukar3, Yukar4, Yukar5, Yukar6};
         }
     }
-    public String[] getIncidentText(int ID){
-        switch (ID){
-            case 1  : return new String[] {Crioffa1, Crioffa2 };
-            case 2  : return new String[] {Crotohi1, Crotohi2 };
-            case 3  : return new String[] {Endpart1, Endpart2 };
-            case 4  : return new String[] {Eternig1, Eternig2 };
-            case 5  : return new String[] {Fiimreq1, Fiimreq2 };
-            case 6  : return new String[] {Grbawea1, Grbawea2 };
-            case 7  : return new String[] {Grfawar1, Grfawar2 };
-            case 8  : return new String[] {Overdri1, Overdri2 };
-            case 9  : return new String[] {Reblhel1, Reblhel2 };
-            case 10 : return new String[] {Saayblo1, Saayblo2 };
-            case 11 : return new String[] {Scwerha1, Scwerha2 };
-            case 12 : return new String[] {Sprsnow1, Sprsnow2 };
-            case 13 : return new String[] {Unfaobj1, Unfaobj2 };
-            case 14 : return new String[] {Votomak1, Votomak2 };
-            case 15 : return new String[] {Wordesi1, Wordesi2 };
-            default : return new String[] {Lilwhit1, Lilwhit2 };
+
+    public String[] getIncidentText(int ID) {
+        switch (ID) {
+            case 1:
+                return new String[]{Crioffa1, Crioffa2};
+            case 2:
+                return new String[]{Crotohi1, Crotohi2};
+            case 3:
+                return new String[]{Endpart1, Endpart2};
+            case 4:
+                return new String[]{Eternig1, Eternig2};
+            case 5:
+                return new String[]{Fiimreq1, Fiimreq2};
+            case 6:
+                return new String[]{Grbawea1, Grbawea2};
+            case 7:
+                return new String[]{Grfawar1, Grfawar2};
+            case 8:
+                return new String[]{Overdri1, Overdri2};
+            case 9:
+                return new String[]{Reblhel1, Reblhel2};
+            case 10:
+                return new String[]{Saayblo1, Saayblo2};
+            case 11:
+                return new String[]{Scwerha1, Scwerha2};
+            case 12:
+                return new String[]{Sprsnow1, Sprsnow2};
+            case 13:
+                return new String[]{Unfaobj1, Unfaobj2};
+            case 14:
+                return new String[]{Votomak1, Votomak2};
+            case 15:
+                return new String[]{Wordesi1, Wordesi2};
+            default:
+                return new String[]{Lilwhit1, Lilwhit2};
         }
     }
-    public String[] getCDBBText(){
-        return new String[] {RoleCar,MaDeCar,InciCar,CharCar};
+
+    public String[] getCDBBText() {
+        return new String[]{RoleCar, MaDeCar, InciCar, CharCar};
     }
 
 }

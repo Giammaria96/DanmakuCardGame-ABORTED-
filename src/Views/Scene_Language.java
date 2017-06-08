@@ -1,19 +1,18 @@
 package Views;
 
-        import Controller.Main;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.geometry.Pos;
-        import javafx.scene.Node;
-        import javafx.scene.Scene;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.ComboBox;
-        import javafx.scene.control.Label;
-        import javafx.scene.image.Image;
-        import javafx.scene.layout.HBox;
-        import javafx.scene.layout.StackPane;
-        import javafx.scene.paint.Color;
-        import javafx.scene.text.Font;
+import Controller.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Scene_Language {
     private static Image ArabicImg = new Image("/images/Languages/Arabic.png");
@@ -41,7 +40,7 @@ public class Scene_Language {
         StackPane BackgroundLayout = new StackPane();
         BackgroundLayout.setStyle("-fx-background-image: url('/images/BG/Background.png\');" +
                 " -fx-background-position: center center;" +
-                " -fx-background-repeat: stretch;"+
+                " -fx-background-repeat: stretch;" +
                 " -fx-background-size: stretch;");
 
         HBox Layout = new HBox(15);
@@ -51,20 +50,23 @@ public class Scene_Language {
 
         Button button = new Button(Main.lang.Lang.Confirm);
 
-        button.setOnAction(e-> {Boolean bln = PopUp_ConfirmBox.display(Main.lang.Lang.conlang + list.getSelectionModel().getSelectedItem().toString());
-            if(bln){
+        button.setOnAction(e -> {
+            Boolean bln = PopUp_ConfirmBox.display(Main.lang.Lang.conlang + list.getSelectionModel().getSelectedItem());
+            if (bln) {
                 Main.setNewScene(Scene_Title.Scene());
-            };});
-        Label label = new Label(Main.lang.Lang.chslang +" : ");
+            }
+        });
+        Label label = new Label(Main.lang.Lang.chslang + " : ");
         label.setFont(new Font("Arial", 16));
         label.setTextFill(Color.web("#F0AA10"));
 
         Scene scene = new Scene(BackgroundLayout);
-        Layout.getChildren().addAll(new Node[]{label, list, button});
+        Layout.getChildren().addAll(label, list, button);
 
         return scene;
     }
-        private static ObservableList<String> getList(){
+
+    private static ObservableList<String> getList() {
         /*Label Arabic = new Label("العربية", new ImageView(ArabicImg));
         Label Chinese = new Label("中文", new ImageView(ChineseImg));
         Label English = new Label("English", new ImageView(EnglishImg));

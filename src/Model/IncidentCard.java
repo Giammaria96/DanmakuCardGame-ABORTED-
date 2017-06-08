@@ -5,17 +5,14 @@ import Controller.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import java.sql.Time;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -47,22 +44,48 @@ public class IncidentCard extends Card {
 
     public void IncidentFunction(Player Heroine, Player[] players, Player CurrentPlayer, int CurrentTurn, boolean IncidentJustStarted) {
         switch (ID) {
-            case 1: Crisis_of_Faith( Heroine, players, CurrentTurn);break;
-            case 2: Crossing_to_Higan(players);break;
-            case 3: Endless_Party(players,CurrentTurn,Battle.getDeck());break;
-            case 4: Eternal_Night(players);break;
-            case 5: Five_Impossible_Requests(CurrentPlayer, true, CurrentPlayer.getHand().length);break;
-            case 6: Great_Barrier_Weakening(CurrentPlayer);break;
-            case 7: break;
-            case 8: break;
-            case 9: Rekindle_Blazing_Hell(players, CurrentPlayer, CurrentTurn, IncidentJustStarted);break;
-            case 10:Saigyou_Ayakashi_Blooming(CurrentPlayer);break;
-            case 11:break;
-            case 12:Spring_Snow(players);break;
-            case 13:break;
-            case 14:Voyage_to_Makai();break;
-            case 15:break;
-            default:Lily_White(CurrentPlayer);
+            case 1:
+                Crisis_of_Faith(Heroine, players, CurrentTurn);
+                break;
+            case 2:
+                Crossing_to_Higan(players);
+                break;
+            case 3:
+                Endless_Party(players, CurrentTurn, Battle.getDeck());
+                break;
+            case 4:
+                Eternal_Night(players);
+                break;
+            case 5:
+                Five_Impossible_Requests(CurrentPlayer, true, CurrentPlayer.getHand().length);
+                break;
+            case 6:
+                Great_Barrier_Weakening(CurrentPlayer);
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                Rekindle_Blazing_Hell(players, CurrentPlayer, CurrentTurn, IncidentJustStarted);
+                break;
+            case 10:
+                Saigyou_Ayakashi_Blooming(CurrentPlayer);
+                break;
+            case 11:
+                break;
+            case 12:
+                Spring_Snow(players);
+                break;
+            case 13:
+                break;
+            case 14:
+                Voyage_to_Makai();
+                break;
+            case 15:
+                break;
+            default:
+                Lily_White(CurrentPlayer);
         }
     }
 
@@ -73,7 +96,7 @@ public class IncidentCard extends Card {
     gains 1 life.
     Then, resolve this incident.*/
     private void Crisis_of_Faith(Player Heroine, Player[] players, int CurrentTurn) {
-        Player player = players[Battle.getcurrentTurn()];
+        Player player = players[Battle.getCurrentTurn()];
         if (player.getRole().getID() == 7) {
             Battle.nextTurn();
             Crisis_of_Faith(Heroine, players, CurrentTurn);
@@ -83,11 +106,11 @@ public class IncidentCard extends Card {
             DeckCard FlippingCard = new DeckCard(Deck[LastCardIndex].getID());
             Timeline timeline = Battle.getFlipAnimation();
             timeline.setOnFinished(e -> {
-                DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length+1];
+                DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length + 1];
                 for (int i = 0; i < newUsedDeck.length - 1; i++) {
                     newUsedDeck[i] = Battle.getUsedCard()[i];
                 }
-                newUsedDeck[newUsedDeck.length-1] = FlippingCard;
+                newUsedDeck[newUsedDeck.length - 1] = FlippingCard;
                 Battle.setUsedDeck(newUsedDeck);
                 DeckCard[] newDeck = new DeckCard[Deck.length - 1];
                 for (int i = 0; i < newDeck.length; i++)
@@ -140,30 +163,31 @@ public class IncidentCard extends Card {
         Task<Void> task = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                if (Battle.getDeck().length==0)
+                if (Battle.getDeck().length == 0)
                     Thread.sleep(3500);
                 return null;
             }
         };
-        task.setOnSucceeded(e->{Player player=players[Battle.getcurrentTurn()];
+        task.setOnSucceeded(e -> {
+            Player player = players[Battle.getCurrentTurn()];
             DeckCard[] Deck = Battle.getDeck();
-            Timeline tl = Battle.getDrawAnimation(players[Battle.getcurrentTurn()],true);
-            tl.setOnFinished(f->{
+            Timeline tl = Battle.getDrawAnimation(players[Battle.getCurrentTurn()], true);
+            tl.setOnFinished(f -> {
                         player.drawCard(new DeckCard(Deck[Deck.length - 1].getID()));
                         DeckCard[] newDeck = new DeckCard[Deck.length - 1];
                         for (int i = 0; i < newDeck.length; i++)
                             newDeck[i] = Deck[i];
                         Battle.setDeck(newDeck);
                         Battle.nextTurn();
-                        if (Battle.getcurrentTurn()==CurrentTurn){
+                        if (Battle.getCurrentTurn() == CurrentTurn) {
                             Battle.DrawPhase();
-                        }
-                        else{
-                            Endless_Party(players,CurrentTurn, newDeck);
+                        } else {
+                            Endless_Party(players, CurrentTurn, newDeck);
                         }
                     }
             );
-            tl.play();});
+            tl.play();
+        });
         Thread thread = new Thread(task);
         thread.start();
     }
@@ -214,7 +238,7 @@ public class IncidentCard extends Card {
                     }
                     card.setRotate(CurrentPlayer.getCoordinatesAndRotate()[2]);
                     keys2[i * 3] = new KeyValue(card.translateXProperty(), Battle.posDeck[0] + 900);
-                    keys2[i * 3 + 1] = new KeyValue(card.translateYProperty(), Battle.posDeck[1]+200);
+                    keys2[i * 3 + 1] = new KeyValue(card.translateYProperty(), Battle.posDeck[1] + 200);
                     keys2[i * 3 + 2] = new KeyValue(card.rotateProperty(), Battle.posDeck[2]);
                 }
                 KeyFrame frames2 = new KeyFrame(Duration.millis(2000), keys2);
@@ -267,13 +291,13 @@ public class IncidentCard extends Card {
     Resolution: Collect 3 Invocation cards.*/
     private void Great_Barrier_Weakening(Player CurrentPlayer) {
         Timeline tl;
-        if (Battle.getUsedCard().length==0)
-             tl = Battle.getDrawAnimation(CurrentPlayer, true);
+        if (Battle.getUsedCard().length == 0)
+            tl = Battle.getDrawAnimation(CurrentPlayer, true);
         else
-             tl = Battle.getDrawAnimation(CurrentPlayer, false);
+            tl = Battle.getDrawAnimation(CurrentPlayer, false);
         Timeline tl2 = Battle.getDrawAnimation(CurrentPlayer, true);
-        tl.setOnFinished(e->tl2.play());
-        tl2.setOnFinished(e-> Battle.MainPhase());
+        tl.setOnFinished(e -> tl2.play());
+        tl2.setOnFinished(e -> Battle.MainPhase());
         tl.play();
     }
 
@@ -282,10 +306,9 @@ public class IncidentCard extends Card {
     During your incident step, discard a Danmaku card or lose 1 life.
     Resolution: Collect 9 Danmaku cards.*/
     private void Great_Fairy_Wars(boolean Just_Entered, int CurrentTurn) {
-        if (Just_Entered){
+        if (Just_Entered) {
 
-        }
-        else{
+        } else {
 
         }
     }
@@ -302,7 +325,7 @@ public class IncidentCard extends Card {
     Resolution: Collect 6 Summer cards.*/
     private void Rekindle_Blazing_Hell(Player[] players, Player playerDrawing, int CurrentTurn, boolean Entered) {
         boolean AllHandMax = true;
-        Timeline tl = Battle.getDrawAnimation(playerDrawing,true);
+        Timeline tl = Battle.getDrawAnimation(playerDrawing, true);
         DeckCard[] Deck = Battle.getDeck();
         /*Timeline tl = new Timeline();
         KeyValue kx0, ky0, kr0, kx1, ky1, kr1;
@@ -326,7 +349,7 @@ public class IncidentCard extends Card {
             for (int i = 0; i < newDeck.length; i++)
                 newDeck[i] = Deck[i];
             Battle.setDeck(newDeck);
-            Rekindle_Blazing_Hell(players, players[Battle.getcurrentTurn()], CurrentTurn, true);
+            Rekindle_Blazing_Hell(players, players[Battle.getCurrentTurn()], CurrentTurn, true);
         });
 
         if (Entered) {
@@ -335,11 +358,11 @@ public class IncidentCard extends Card {
                     AllHandMax = false;
             if (playerDrawing.getMaxHand() > playerDrawing.getHand().length) {
                 tl.play();
-            } else if (Battle.getcurrentTurn() == CurrentTurn && AllHandMax) {
+            } else if (Battle.getCurrentTurn() == CurrentTurn && AllHandMax) {
                 Battle.DrawPhase();
             } else {
                 Battle.nextTurn();
-                Rekindle_Blazing_Hell(players, players[Battle.getcurrentTurn()], CurrentTurn, true);
+                Rekindle_Blazing_Hell(players, players[Battle.getCurrentTurn()], CurrentTurn, true);
             }
         } else if (playerDrawing.getMaxHand() > playerDrawing.getHand().length) {
             tl.play();
@@ -359,8 +382,10 @@ public class IncidentCard extends Card {
         sleeper2.setOnSucceeded(e -> Battle.DrawPhase());
         Thread thread2 = new Thread(sleeper2);
         thread.start();
-        try {thread.join();}
-        catch (InterruptedException e) {}
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+        }
         thread2.start();
     }
 
@@ -378,7 +403,7 @@ public class IncidentCard extends Card {
     Resolution: Collect 6 Spring cards.*/
     private void Spring_Snow(Player[] players) {
         for (Player player : players)
-            player.setSpellcardAvaible(false);
+            player.setSpellCardAvailable(false);
         Task<Void> sleeper = Main.sleeper(1500);
         sleeper.setOnSucceeded(e -> Battle.DrawPhase());
         Thread thread = new Thread(sleeper);
@@ -413,22 +438,21 @@ public class IncidentCard extends Card {
         int LastCardIndex = Deck.length - 1;
         DeckCard FlippingCard = new DeckCard(Deck[LastCardIndex].getID());
         Timeline timeline = Battle.getFlipAnimation();
-        timeline.setOnFinished(e->{
-            DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length+1];
+        timeline.setOnFinished(e -> {
+            DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length + 1];
             for (int i = 0; i < newUsedDeck.length - 1; i++) {
                 newUsedDeck[i] = Battle.getUsedCard()[i];
             }
-            newUsedDeck[newUsedDeck.length-1] = FlippingCard;
+            newUsedDeck[newUsedDeck.length - 1] = FlippingCard;
             Battle.setUsedDeck(newUsedDeck);
             DeckCard[] newDeck = new DeckCard[Deck.length - 1];
             for (int i = 0; i < newDeck.length; i++)
                 newDeck[i] = Deck[i];
             Battle.setDeck(newDeck);
 
-            if (FlippingCard.getSeason()==2){
+            if (FlippingCard.getSeason() == 2) {
                 CurrentPlayer.ModifyLife(-3);
-            }
-            else if (FlippingCard.getSeason()==3){
+            } else if (FlippingCard.getSeason() == 3) {
                 Battle.solveIncident();
             }
             Battle.DrawPhase();
