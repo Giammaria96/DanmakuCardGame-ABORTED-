@@ -9,8 +9,8 @@ Original game source: [http://danmaku.mysteryparfait.com/](http://danmaku.myster
 
 This is a **nonprofit** project, in order to create a software to specifically play the 
 card game "*Danmaku !! Card game*" by *Mystery Parfait*, because at the moment, the game 
-is only playable in its physical format, or Through the softwate "Table Top Simulator" 
-in which only gives you a space to use the letters in a digical way, but does not 
+is only playable in its physical format, or Through the software "Table Top Simulator" 
+in which only gives you a space to use the letters in a digital way, but does not 
 automate the game itself.
 
 This software is still not playable, and remain being the sole developer of the same, 
