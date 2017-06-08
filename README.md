@@ -1,4 +1,5 @@
 # DanmakuCardGame
+# @since 03/10/2017
 Freeware to play Mystery Parfait's card game called "Danmaku!!"
 
 This is a nonprofit project, in order to create a software to specifically play the 
