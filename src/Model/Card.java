@@ -5,8 +5,6 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -14,14 +12,10 @@ import javafx.scene.text.Text;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Card {
-    protected int Season;
     private static Thread thread;
+    protected int Season;
     protected int ID;
     protected String Type;
     protected String BGImage;
@@ -34,7 +28,47 @@ public class Card {
         BGImage = "/images/" + Type + "/" + ID + ".png";
     }
 
-    /**Return a Card as a GridPane
+    public static void SetOnMouse__ViewZoom(Pane PatternPane, GridPane View, Card card, boolean bln, double size_percentage, Pos pos) {
+        View.setOnMouseEntered(e -> {
+            Task<Void> sleeper = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    try {
+                        Thread.sleep(1001);
+                    } catch (InterruptedException e) {
+                        failed();
+                    }
+                    return null;
+                }
+            };
+            sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+                @Override
+                public void handle(WorkerStateEvent event) {
+                    GridPane view = card.getView(size_percentage, bln);
+                    PatternPane.getChildren().add(view);
+                    StackPane.setAlignment(view, pos);
+                }
+            });
+            thread = new Thread(sleeper);
+            thread.start();
+        });
+        View.setOnMouseExited(e -> {
+            try {
+                thread.stop();
+                if (PatternPane.getChildren().size() > 2)
+                    PatternPane.getChildren().remove(1, PatternPane.getChildren().size());
+                else if (PatternPane.getChildren().size() == 2)
+                    PatternPane.getChildren().remove(1);
+            } catch (NullPointerException error) {
+            }
+        });
+
+
+    }
+
+    /**
+     * Return a Card as a GridPane
+     *
      * @param size_percentage scale to resize pane
      * @return Card GridPane
      */
@@ -143,46 +177,5 @@ public class Card {
 
     public String getName() {
         return Name;
-    }
-
-
-    public static void SetOnMouse__ViewZoom(Pane PatternPane, GridPane View, Card card, boolean bln, double size_percentage, Pos pos){
-        View.setOnMouseEntered(e-> {
-            Task<Void> sleeper = new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                    try {
-                        Thread.sleep(1001);
-                    }
-                    catch (InterruptedException e) {
-                        failed();
-                    }
-                    return null;
-                }
-            };
-            sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                @Override
-                public void handle(WorkerStateEvent event) {
-                    GridPane view = card.getView(size_percentage, bln);
-                    PatternPane.getChildren().add(view);
-                    StackPane.setAlignment(view,pos);
-                }
-            });
-            thread = new Thread(sleeper);
-            thread.start();
-        });
-        View.setOnMouseExited(e -> {
-            try {
-                thread.stop();
-                if (PatternPane.getChildren().size() > 2)
-                    PatternPane.getChildren().remove(1, PatternPane.getChildren().size());
-                else if (PatternPane.getChildren().size() == 2)
-                    PatternPane.getChildren().remove(1);
-            }
-            catch (NullPointerException error){}
-        });
-
-
-
     }
 }

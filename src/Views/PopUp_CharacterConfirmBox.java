@@ -9,16 +9,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PopUp_CharacterConfirmBox {
-    private static boolean answer=false;
+    private static boolean answer = false;
 
-    public static boolean display(CharacterCard card){
+    public static boolean display(CharacterCard card) {
         Stage PopUp = new Stage();
         PopUp.initModality(Modality.APPLICATION_MODAL);
         Language lang = Main.lang.Lang;
@@ -32,20 +31,26 @@ public class PopUp_CharacterConfirmBox {
         ButtonBox.setAlignment(Pos.CENTER);
 
         Label label = new Label(lang.CharacterChoice);
-        label.setFont(new Font("Times New Roman",20));
+        label.setFont(new Font("Times New Roman", 20));
         label.setStyle("-fx-text-fill: white");
         Button Byes = new Button(lang.Yes),
-               Bno  = new Button(lang.No);
+                Bno = new Button(lang.No);
         Byes.setPrefWidth(60);
         Bno.setPrefWidth(60);
         ButtonBox.getChildren().addAll(Byes, Bno);
 
-        GridPane CardView = card.getView(100,true);
+        GridPane CardView = card.getView(100, true);
         CardView.setAlignment(Pos.CENTER);
 
-        MainPane.getChildren().addAll(label,CardView,ButtonBox);
-        Byes.setOnAction(e-> {answer=true;PopUp.close();});
-        Bno.setOnAction(e-> {answer=false;PopUp.close();});
+        MainPane.getChildren().addAll(label, CardView, ButtonBox);
+        Byes.setOnAction(e -> {
+            answer = true;
+            PopUp.close();
+        });
+        Bno.setOnAction(e -> {
+            answer = false;
+            PopUp.close();
+        });
         PopUp.setScene(new Scene(MainPane));
         PopUp.showAndWait();
         return answer;

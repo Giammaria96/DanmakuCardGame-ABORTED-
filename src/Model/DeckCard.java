@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class DeckCard extends Card{
+public class DeckCard extends Card {
     private int Season;
     private boolean Action;
     private boolean Reaction;
@@ -27,7 +27,7 @@ public class DeckCard extends Card{
         super("Deck", ID);
         this.ID = ID;
         String[] text = Main.lang.Lang.getDeckText(ID);
-        BufferedReader FILE = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/Images/Deck/"+ID+".dat")));
+        BufferedReader FILE = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/Images/Deck/" + ID + ".dat")));
         try {
             Season = Integer.parseInt(FILE.readLine());
             Action = setCharacteristics(FILE.readLine());
@@ -47,62 +47,72 @@ public class DeckCard extends Card{
         Description = text[1];
     }
 
-    private boolean setCharacteristics(String bln) {
-        return Objects.equals("1", bln);
-    }
-
-
-    /**
-     * 0 = Autumn
-     * 1 = Winter
-     * 2 = Spring
-     * 3 = Summer**/
-    public int getSeason() {
-        return Season;
-    }
-    public boolean isAction() {
-        return Action;
-    }
-    public boolean isReaction() {
-        return Reaction;
-    }
-    public boolean isHealing() {
-        return Healing;
-    }
-    public boolean isInvocation() {
-        return Invocation;
-    }
-    public boolean isItem() {
-        return Item;
-    }
-    public boolean isDefense() {
-        return Defense;
-    }
-    public boolean isGraze() {
-        return Graze;
-    }
-    public boolean isDanmaku() {
-        return Danmaku;
-    }
-    public boolean isArtifact() {
-        return Artifact;
-    }
-    public boolean isPowerup() {
-        return Powerup;
-    }
-
     public static DeckCard[] shuffle(DeckCard[] toShuffle) {
         List<DeckCard> CardList = Arrays.asList(toShuffle);
         Collections.shuffle(CardList);
         return CardList.toArray(new DeckCard[CardList.size()]);
     }
 
-    public static DeckCard[] generateDeck(){
+    public static DeckCard[] generateDeck() {
         DeckCard[] Deck = new DeckCard[80];
         for (int i = 0; i < 80; i++) {
-            Deck[i]=new DeckCard(i+1);
+            Deck[i] = new DeckCard(i + 1);
         }
         Deck = shuffle(Deck);
         return Deck;
+    }
+
+    private boolean setCharacteristics(String bln) {
+        return Objects.equals("1", bln);
+    }
+
+    /**
+     * 0 = Autumn
+     * 1 = Winter
+     * 2 = Spring
+     * 3 = Summer
+     **/
+    public int getSeason() {
+        return Season;
+    }
+
+    public boolean isAction() {
+        return Action;
+    }
+
+    public boolean isReaction() {
+        return Reaction;
+    }
+
+    public boolean isHealing() {
+        return Healing;
+    }
+
+    public boolean isInvocation() {
+        return Invocation;
+    }
+
+    public boolean isItem() {
+        return Item;
+    }
+
+    public boolean isDefense() {
+        return Defense;
+    }
+
+    public boolean isGraze() {
+        return Graze;
+    }
+
+    public boolean isDanmaku() {
+        return Danmaku;
+    }
+
+    public boolean isArtifact() {
+        return Artifact;
+    }
+
+    public boolean isPowerup() {
+        return Powerup;
     }
 }
