@@ -32,7 +32,7 @@ public class Player {
             Range = 1,
             Distance = 0,
             MaxHand = 0;
-    private int[] CoordinatesAndRotate = new int[3];
+    private final int[] CoordinatesAndRotate;
     private DeckCard[] Hand = new DeckCard[0],
             powerUp = new DeckCard[0];
     private CharacterCard Character;
@@ -124,6 +124,9 @@ public class Player {
         updateStats();
     }
 
+    /**Automatically sets Distance bonus of the player
+     * Based on Current power-ups, Skills and Game effects
+     */
     private void setDistance() {
         Distance = 0;
         if (Character.getID() == 10)
@@ -136,11 +139,17 @@ public class Player {
         }
     }
 
-    public void setDistance(int limit) {
-        Distance = limit;
+    /** Manually sets Distance bonus of the player
+     * @param newDistance the New Distance
+     */
+    public void setDistance(int newDistance) {
+        Distance = newDistance;
         updateStats();
     }
 
+    /** Automatically sets the Hand Limit of the player
+     *  Based on Current power-ups, Skills and Game effects
+     */
     private void setMaxHand() {
         MaxHand = 4;
         if (Role.getID() == 7)
@@ -154,6 +163,8 @@ public class Player {
                     MaxHand += 3;
     }
 
+    /** Set if Player can and Should Skip it's next turn
+     */
     private void setSkipTurn() {
         if (ShouldSkip) {
             SkipCount = 0;
@@ -165,6 +176,9 @@ public class Player {
             canSkip = true;
     }
 
+    /** Automatically set Player's max life
+     * Based in its role
+     */
     private void setMaxLife() {
         MaxLife = 4;
         if (Role.getID() == 7 || Role.getID() == 4 || Role.getID() == 16)
@@ -174,6 +188,10 @@ public class Player {
         updateStats();
     }
 
+    /** Return Player's stats to the Current value
+     * based on its card, skill, power-ups, etc...
+     *  at the start of the turn
+     */
     public void resetStats() {
         SpellCardAvailable = true;
         UsedDanmaku = 0;
@@ -186,29 +204,52 @@ public class Player {
         updateStats();
     }
 
+    /** Get the current player's Cards in hand
+     * @return Players's Card in Hand Array
+     */
     public DeckCard[] getHand() {
         return Hand;
     }
 
+    /** Set the Player's Card in hand based in an Array
+     * @param hand DeckCard Array
+     */
     public void setHand(DeckCard[] hand) {
         Hand = hand;
         updateHandGrid(PatternPane);
     }
 
-    public GridPane getHandGrid() {
+    /** Generate a GridPane to Display Player's Card in Hand
+     * on the Screen
+     * @return GridPane with Player's card
+     */
+    GridPane getHandGrid() {
         return HandCards;
     }
 
+    /** Gets the Current Player's Role Card
+     * @return Player's Role Card
+     */
     public RoleCard getRole() {
         return Role;
     }
 
+    /**  Set a new Role for the Player
+     * @param role new RoleCard
+     */
     public void setRole(RoleCard role) {
         Role = role;
         setMaxLife();
         updateRole(PatternPane);
     }
 
+    /** Generates a GridPane to Display All Player
+     * characteristics, Cards, Role, Character, power-ups
+     * and Stats
+     * @param PatternPane Pane were the Grid is going to be displayed
+     * @param bln Player's card should be face-up
+     * @return GrindPane to be displayed
+     */
     public GridPane getTable(Pane PatternPane, boolean bln) {
         this.PatternPane = PatternPane;
         player = bln;
@@ -279,38 +320,67 @@ public class Player {
         return PlayerView;
     }
 
+    /** gets the player's view GridPane
+     * @return Player's view GridPane
+     */
     public GridPane getTable() {
         return PlayerView;
     }
 
-    public GridPane getRoleView() {
+    /** Generates Role view GridPane to be displayed
+     * in PLayer's View GridPane
+     * @return Player's RolePlay GridPane
+     */
+    GridPane getRoleView() {
         return RoleView;
     }
 
+    /** Gets the Current Player's Life point
+     * @return Player's Life
+     */
     public int getLife() {
         return Life;
     }
 
+    /**Get Player's Location on PatternPane
+     * @return Player's Location Array
+     */
     public int[] getCoordinatesAndRotate() {
         return CoordinatesAndRotate;
     }
 
+    /** Get the Current Player's Character Card
+     * @return PLayer's Character Card
+     */
     public CharacterCard getCharacter() {
         return Character;
     }
 
+    /**Gets the Player's max hand size
+     * @return Player's max hand size
+     */
     public int getMaxHand() {
         return MaxHand;
     }
 
+    /** Checks if Player can Play Danmaku Cards
+     *
+     * @return
+     */
     public boolean canPlayDanmaku() {
         return Danmaku > UsedDanmaku;
     }
 
+    /** set the Player's Active Power Ups
+     * @param powerUp PowerUps Cards Array
+     */
     private void setPowerUp(DeckCard[] powerUp) {
         this.powerUp = powerUp;
     }
 
+    /** Swap Current Player's Role with another Player
+     * @param Player2 Player with whom the role is exchanged
+     */
     public void swapRole(Player Player2) {
         RoleCard Temp1 = new RoleCard(Role.getID());
         RoleCard Temp2 = new RoleCard(Player2.getRole().getID());
@@ -324,6 +394,9 @@ public class Player {
         Player2.setMaxHand();
     }
 
+    /** Adds a Powerup card To the Active Power-Ups Array
+     * @param P Power-up to add
+     */
     public void addPowerup(DeckCard P) {
         int n = powerUp.length;
         DeckCard[] newPowerUp = new DeckCard[n + 1];
@@ -335,6 +408,9 @@ public class Player {
         updatePowerUps(PatternPane);
     }
 
+    /** Swap Current Player's Hand with another Player
+     * @param Player2 Player with whom the hand is exchanged
+     */
     public void swapHand(Player Player2) {
         DeckCard[] Temp1 = Hand;
         DeckCard[] Temp2 = Player2.getHand();
@@ -342,6 +418,9 @@ public class Player {
         Player2.setHand(Temp1);
     }
 
+    /**Placer a new Card In Player's hand
+     * @param Draw new Card
+     */
     public void drawCard(DeckCard Draw) {
         int n = Hand.length;
         DeckCard[] newHand = new DeckCard[n + 1];
@@ -352,6 +431,11 @@ public class Player {
         setHand(newHand);
     }
 
+    /** Modify Player's Life in a specific amount
+     * it will never be less than 0 or higher than
+     * Player's max life
+     * @param amount
+     */
     public void ModifyLife(int amount) {
         if (Battle.getCurrentIncident() != null)
             if (Battle.getCurrentIncident().getID() == 14 && amount > 0)
@@ -423,7 +507,9 @@ public class Player {
         updateStats();
     }
 
-
+    /**Updates Player's Visible Hand GridPane
+     * @param PatternPane Pane were Hand GridPane would be located
+     */
     private void updateHandGrid(Pane PatternPane) {
         HandCards.getChildren().removeAll(HandCards.getChildren());
         HandCards.getColumnConstraints().removeAll();
@@ -442,6 +528,9 @@ public class Player {
         }
     }
 
+    /**Updates Player's Visible Power-ups GridPane
+     * @param PatternPane Pane were Power-ups GridPane would be located
+     */
     private void updatePowerUps(Pane PatternPane) {
         powerUpCards.getChildren().removeAll();
         powerUpCards.getColumnConstraints().removeAll();
@@ -460,6 +549,9 @@ public class Player {
         }
     }
 
+    /**Updates Player's Visible Role GridPane
+     * @param PatternPane Pane were Role GridPane would be located
+     */
     private void updateRole(Pane PatternPane) {
         RoleView = Role.getView(70.2380952381, Role.isRevealed());
         SetOnMouse__ViewZoom(PatternPane, RoleView, Role, player || Role.isRevealed(), Main.H * 0.5221476510067114 / 590 * 100);
@@ -472,6 +564,8 @@ public class Player {
         }
     }
 
+    /**Updates Player's Current Stats Visible Values
+     */
     private void updateStats() {
         PlayerStats.setText(String.format(Main.lang.Lang.PlayerStats,
                 Life,
@@ -482,6 +576,13 @@ public class Player {
                 MaxHand));
     }
 
+    /**Set Card to be Zoomed when Mouse is over it for some time
+     * @param PatternPane Pane were Zoomed Card will be displayed
+     * @param View Card's view
+     * @param card Card
+     * @param bln Is face up
+     * @param size_percentage sizer
+     */
     public void SetOnMouse__ViewZoom(Pane PatternPane, GridPane View, Card card, boolean bln, double size_percentage) {
         View.setOnMouseEntered(e -> {
             Task<Void> sleeper = new Task<Void>() {
@@ -519,9 +620,10 @@ public class Player {
 
     }
 
+    /** Turns On/Off Visibility of Player's Stats
+     */
     public void viewStats() {
         StatsVisible = !StatsVisible ? true : false;
         PlayerStats.setVisible(StatsVisible);
     }
-
 }

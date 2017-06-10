@@ -3,7 +3,7 @@
 Freeware para jugar el juego de cartas de Mystery Parfait llamado "Danmaku !! Card Game"
 
 Fuente del juego original: [http://danmaku.mysteryparfait.com/](http://danmaku.mysteryparfait.com/ "Danmaku Mystery Parfait")
-![](http://danmaku.mysteryparfait.com/images/banner_bg.jpg)
+![http://danmaku.mysteryparfait.com/](http://danmaku.mysteryparfait.com/images/banner_bg.jpg)
 
 ----------
 

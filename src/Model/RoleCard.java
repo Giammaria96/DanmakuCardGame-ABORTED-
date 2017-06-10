@@ -32,12 +32,20 @@ public class RoleCard extends Card {
             revealed = true;
     }
 
+    /** Randomize a RoleCard Array
+     * @param toShuffle Array to Shuffle
+     * @return Shuffled array
+     */
     public static RoleCard[] shuffle(RoleCard[] toShuffle) {
         List<RoleCard> CardList = Arrays.asList(toShuffle);
         Collections.shuffle(CardList);
         return CardList.toArray(new RoleCard[CardList.size()]);
     }
 
+    /** Generaste a role Deck based on Roles for the match0
+     * @param Roles RoleCard's ID list
+     * @return RoleCard Deck
+     */
     public static RoleCard[] generateRoleCardDeck(int[] Roles) {
         RoleCard[] Deck = new RoleCard[Roles.length];
         for (int i = 0; i < Roles.length; i++) {
@@ -47,6 +55,12 @@ public class RoleCard extends Card {
         return Deck;
     }
 
+    /** Generate a view of this card as a GridPane
+     * Default size : 598*419 px
+     * @param size_percentage scale to resize pane
+     * @param bln true: face-up card
+     * @return GridPane with a visible Structure of the card
+     */
     @Override
     public GridPane getView(double size_percentage, boolean bln) {
         size_percentage /= 100;
@@ -149,10 +163,16 @@ public class RoleCard extends Card {
         return gridPane;
     }
 
+    /** Get the current Status of the card
+     * @return true if Card is Face-up
+     */
     public boolean isRevealed() {
         return revealed;
     }
 
+    /** Faces up or down the card
+     * @param revealed Card Status
+     */
     public void setRevealed(boolean revealed) {
         this.revealed = revealed;
     }
