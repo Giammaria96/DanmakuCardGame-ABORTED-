@@ -50,8 +50,7 @@ public class Audio {
         }
     }
 
-    /**
-     * Plays a Background Music
+    /** Plays a Background Music
      *
      * @param BGMname File Name
      */

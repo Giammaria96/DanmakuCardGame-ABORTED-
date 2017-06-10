@@ -90,7 +90,7 @@ public class IncidentCard extends Card {
     }
 
     //<editor-fold defaultstate="collapse" desc="IncidentEffects">
-    /*When this incident enters play, each player except the Heroine
+    /**When this incident enters play, each player except the Heroine
     flips the top card of the deck until someone flips an Autumn.
     That player permanently swaps Role cards with the Heroine and
     gains 1 life.
@@ -145,7 +145,7 @@ public class IncidentCard extends Card {
         }
     }
 
-    /*All players are considered in range, regardless of distance.
+    /**All players are considered in range, regardless of distance.
     Resolution: A player is defeated.*/
     private void Crossing_to_Higan(Player[] players) {
         for (Player player : players)
@@ -156,7 +156,7 @@ public class IncidentCard extends Card {
         thread.start();
     }
 
-    /*During your incident step, each player draws one card.
+    /**During your incident step, each player draws one card.
     You still take your draw step.
     Resolution: The deck is reshuffled.*/
     private void Endless_Party(Player[] players, int CurrentTurn, DeckCard[] deck) {
@@ -192,7 +192,7 @@ public class IncidentCard extends Card {
         thread.start();
     }
 
-    /*Players may play any number of Danmaku cards each turn.
+    /**Players may play any number of Danmaku cards each turn.
     Collect the top card of the deck during your incident step.
     Collect any Danmaku cards.
     Resolution: Collect 12 cards.*/
@@ -202,7 +202,7 @@ public class IncidentCard extends Card {
         Battle.DrawPhase();
     }
 
-    /*During your incident step, discard your hand and draw that many cards.
+    /**During your incident step, discard your hand and draw that many cards.
     You still take your draw step.
     Resolution: Collect 1 Artifact card.*/
     private void Five_Impossible_Requests(Player CurrentPlayer, boolean discard, int Cards_in_hand) {
@@ -285,7 +285,7 @@ public class IncidentCard extends Card {
         }
     }
 
-    /*Draw your first card each turn from the discard pile.
+    /**Draw your first card each turn from the discard pile.
     If the discard pile is empty, draw from the deck instead.
     Cards must be placed on the discard pile in the order they are played.
     Resolution: Collect 3 Invocation cards.*/
@@ -301,7 +301,7 @@ public class IncidentCard extends Card {
         tl.play();
     }
 
-    /*When this incident enters play, all other players must
+    /**When this incident enters play, all other players must
     discard a Danmaku card or lose 1 life.
     During your incident step, discard a Danmaku card or lose 1 life.
     Resolution: Collect 9 Danmaku cards.*/
@@ -313,13 +313,13 @@ public class IncidentCard extends Card {
         }
     }
 
-    /*You may pay 1 life to activate your Spell Card.
+    /**You may pay 1 life to activate your Spell Card.
     You can only activate one Spell Card per round.
     Resolution: Collect 6 Dodge cards.¨*/
     private void Overdrive() {
     }
 
-    /*When this incident enters play, all players draw up to their max hand size.
+    /**When this incident enters play, all players draw up to their max hand size.
     During your incident step, draw up to your max hand size.
     You still take your draw step.
     Resolution: Collect 6 Summer cards.*/
@@ -371,7 +371,7 @@ public class IncidentCard extends Card {
         }
     }
 
-    /*Lose 1 life during your incident step.
+    /**Lose 1 life during your incident step.
     This is not an attack.
     Resolution: Collect 6 Winter cards.*/
     private void Saigyou_Ayakashi_Blooming(Player player) {
@@ -389,7 +389,7 @@ public class IncidentCard extends Card {
         thread2.start();
     }
 
-    /*During your incident step, flip the top card of the
+    /**During your incident step, flip the top card of the
     deck and perform an action according to its season.
     Spring: Swap hands with the player on your right.
     Summer: Draw one card.
@@ -399,7 +399,7 @@ public class IncidentCard extends Card {
     private void Scarlet_Weather_Rhapsody() {
     }
 
-    /*Players cannot activate Spell Cards.
+    /**Players cannot activate Spell Cards.
     Resolution: Collect 6 Spring cards.*/
     private void Spring_Snow(Player[] players) {
         for (Player player : players)
@@ -410,7 +410,7 @@ public class IncidentCard extends Card {
         thread.start();
     }
 
-    /*During your incident step, reveal the top 3 cards of the deck.
+    /**During your incident step, reveal the top 3 cards of the deck.
     You may choose a Powerup, Invocation, or Healing card from among
     these and add it to your hand.
     Collect all other cards revealed this way.
@@ -418,18 +418,18 @@ public class IncidentCard extends Card {
     private void Undefined_Fantastic_Object() {
     }
 
-    /*Players cannot gain life. Players cannot be returned to life.
+    /**Players cannot gain life. Players cannot be returned to life.
     Resolution: Collect 6 Autumn cards.*/
     private void Voyage_to_Makai() {
     }
 
-    /*When this incident enters play, all players discard all Item cards in play.
+    /**When this incident enters play, all players discard all Item cards in play.
     If a player would put an Item card into play, they discard it instead.
     Resolution: Collect 4 Item cards.*/
     private void Worldly_Desires() {
     }
 
-    /*During your incident step, flip the top card of the deck.
+    /**During your incident step, flip the top card of the deck.
     If it is a Summer, resolve this incident.
     If it is a Spring, you lose 3 life.
     This is not an attack.*/
