@@ -66,8 +66,7 @@ public class DeckCard extends Card {
         return Objects.equals("1", bln);
     }
 
-    /**
-     * 0 = Autumn
+    /**@return 0 = Autumn
      * 1 = Winter
      * 2 = Spring
      * 3 = Summer

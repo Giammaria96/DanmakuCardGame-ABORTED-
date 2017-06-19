@@ -2,7 +2,6 @@ package Language;
 
 class English extends Language {
 
-    private static final String[] NPlayer = new String[]{"4 Players", "5 Players", "6Players", "7 Players", "8 Players"};
     //<editor-fold defaultstate="collapsed" desc="Text">
     private static final String
 
@@ -363,7 +362,21 @@ class English extends Language {
             SandB = "Save and Back",
             Exit = "Exit",
             SandE = "Save and Exit",
-            language = "Language";
+            language = "Language",
+            NewGame = "New Game",
+            NetPlay = "NetPlay",
+            HowToPlay = "How to play",
+            CardDatabase = "Card Database",
+            Configuration = "Configuration";
+
+    private static final String[] NPlayer = new String[]
+            {
+                    "4 Players",
+                    "5 Players",
+                    "6 Players",
+                    "7 Players",
+                    "8 Players"
+            };
 
 
     //</editor-fold>
@@ -372,7 +385,7 @@ class English extends Language {
         super(Alice1, Alice2, Alice3, Alice4, Alice5, Alice6, Cirno1, Cirno2, Cirno3, Cirno4, Cirno5, Cirno6, Reimu1, Reimu2, Reimu3, Reimu4, Reimu5, Reimu6, Byaku1, Byaku2, Byaku3, Byaku4, Byaku5, Byaku6, Tensh1, Tensh2, Tensh3, Tensh4, Tensh5, Tensh6, China1, China2, China3, China4, China5, China6, Suika1, Suika2, Suika3, Suika4, Suika5, Suika6, Sakuy1, Sakuy2, Sakuy3, Sakuy4, Sakuy5, Sakuy6, Keine1, Keine2, Keine3, Keine4, Keine5, Keine6, Kappa1, Kappa2, Kappa3, Kappa4, Kappa5, Kappa6, Yuuka1, Yuuka2, Yuuka3, Yuuka4, Yuuka5, Yuuka6, Maria1, Maria2, Maria3, Maria4, Maria5, Maria6, Sanae1, Sanae2, Sanae3, Sanae4, Sanae5, Sanae6, Sator1, Sator2, Sator3, Sator4, Sator5, Sator6, Youmu1, Youmu2, Youmu3, Youmu4, Youmu5, Youmu6, Futo_1, Futo_2, Futo_3, Futo_4, Futo_5, Futo_6, Patch1, Patch2, Patch3, Patch4, Patch5, Patch6, Inaba1, Inaba2, Inaba3, Inaba4, Inaba5, Inaba6, Okuu_1, Okuu_2, Okuu_3, Okuu_4, Okuu_5, Okuu_6, Remil1, Remil2, Remil3, Remil4, Remil5, Remil6, Ayaya1, Ayaya2, Ayaya3, Ayaya4, Ayaya5, Ayaya6, Miko_1, Miko_2, Miko_3, Miko_4, Miko_5, Miko_6, Eirin1, Eirin2, Eirin3, Eirin4, Eirin5, Eirin6, Yukar1, Yukar2, Yukar3, Yukar4, Yukar5, Yukar6, Anti__1, Anti__2, Anti__3, Challe1, Challe2, Challe3, Exboss1, Exboss2, Exboss3, ExbosR1, ExbosR2, ExbosR3, Exmidb1, Exmidb2, Exmidb3, FinalB1, FinalB2, FinalB3, Heroin1, Heroin2, Heroin3, OTPart1, OTPart2, OTPart3, Partne1, Partne2, Partne3, Phanto1, Phanto2, Phanto3, Rival_1, Rival_2, Rival_3, STGBOS1, STGBOS2, STGBOS3, TPhant1, TPhant2, TPhant3, UP1___1, UP1___2, BOMB__1, BOMB__2, Caspca1, Caspca2, Focus_1, Focus_2, Graze_1, Graze_2, Grimoi1, Grimoi2, Kourin1, Kourin2, Lassho1, Lassho2, Laswor1, Laswor2, Maspla1, Maspla2, Melee_1, Melee_2, Mihakk1, Mihakk2, Party_1, Party_2, Power_1, Power_2, Sealaw1, Sealaw2, Shoot_1, Shoot_2, Sosusc1, Sosusc2, Spiatk1, Spiatk2, Stopwa1, Stopwa2, Sunabo1, Sunabo2, Tempes1, Tempes2, Voile_1, Voile_2, Borrow1, Borrow2, Crioffa1, Crioffa2, Crotohi1, Crotohi2, Endpart1, Endpart2, Eternig1, Eternig2, Fiimreq1, Fiimreq2, Grbawea1, Grbawea2, Grfawar1, Grfawar2, Overdri1, Overdri2, Reblhel1, Reblhel2, Saayblo1, Saayblo2, Scwerha1, Scwerha2, Sprsnow1, Sprsnow2, Unfaobj1, Unfaobj2, Votomak1, Votomak2, Wordesi1, Wordesi2, Lilwhit1, Lilwhit2, Yes, No, Confirm, chslang, conlang
                 , RoleCar, MaDeCar, InciCar, CharCar, NPlayer[0], NPlayer[1], NPlayer[2], NPlayer[3], NPlayer[4],
                 Heroine, StageBoss, ExtraBoss, Partner, AddLily, NofRolesError, CharacterChoice, step1, step2, step3, step4, step5, PlayerStats, infinite, ViewStats, EndTurn,
-                Back, SandB, Exit, SandE, language);
+                Back, SandB, Exit, SandE, language,NewGame,NetPlay,HowToPlay,CardDatabase,Configuration);
     }
 }
 

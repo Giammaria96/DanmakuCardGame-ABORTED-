@@ -1,8 +1,8 @@
 package Controller;
 
 import Language.Language;
-import Views.Scene_Language;
-import Views.Scene_Title;
+import Model.Audio;
+import Views.Scenes.Scene_Language;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.scene.Scene;
@@ -19,25 +19,6 @@ public class Main extends Application {
     public static Double H;
     public static final Audio audio = new Audio();
     private static Stage primaryStage;
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    public static void setNewScene(Scene scene) {
-        primaryStage.setScene(scene);
-    }
-
-    public static Task<Void> sleeper(int millis) {
-        return new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-                Thread.sleep(millis);
-                return null;
-            }
-        };
-    }
-
     @Override
     public void start(Stage stg) throws Exception {
         primaryStage = new Stage();
@@ -56,6 +37,32 @@ public class Main extends Application {
         audio.playBGM();
     }
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
+
+
+
+
+    static void setNewScene(Scene scene) {
+        primaryStage.setScene(scene);
+    }
+
+    static void setNewLanguage(String languageName){
+        lang = new Language(languageName);
+    }
+    public static Task<Void> sleeper(int millis) {
+        return new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                Thread.sleep(millis);
+                return null;
+            }
+        };
+    }
+
     /**
      * Ask the user for choose a Language if it's the
      * first time using the app.
@@ -69,7 +76,7 @@ public class Main extends Application {
         if ("0".equals(Text)) {
             setNewScene(Scene_Language.Scene());
         } else {
-            setNewScene(Scene_Title.Scene());
+            new Controller_Tittle();
         }
     }
 }

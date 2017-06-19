@@ -1,4 +1,4 @@
-package Views;
+package Views.PopUps;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

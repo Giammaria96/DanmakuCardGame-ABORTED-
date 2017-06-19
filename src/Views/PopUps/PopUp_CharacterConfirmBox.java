@@ -1,4 +1,4 @@
-package Views;
+package Views.PopUps;
 
 import Controller.Main;
 import Language.Language;

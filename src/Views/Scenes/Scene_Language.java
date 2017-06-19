@@ -1,6 +1,8 @@
-package Views;
+package Views.Scenes;
 
+import Controller.Controller_Tittle;
 import Controller.Main;
+import Views.PopUps.PopUp_ConfirmBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -53,7 +55,7 @@ public class Scene_Language {
         button.setOnAction(e -> {
             Boolean bln = PopUp_ConfirmBox.display(Main.lang.Lang.conlang + list.getSelectionModel().getSelectedItem());
             if (bln) {
-                Main.setNewScene(Scene_Title.Scene());
+                new Controller_Tittle();
             }
         });
         Label label = new Label(Main.lang.Lang.chslang + " : ");
