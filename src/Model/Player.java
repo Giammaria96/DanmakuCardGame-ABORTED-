@@ -9,6 +9,7 @@ import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
+import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -254,6 +255,7 @@ public class Player {
         this.PatternPane = PatternPane;
         player = bln;
         GridPane PlayerPane = new GridPane();
+        PlayerView = PlayerPane;
         PlayerPane.setPrefSize(1800, 860);
         PlayerPane.setMinSize(1800, 860);
         PlayerPane.setMaxSize(1800, 860);
@@ -285,17 +287,17 @@ public class Player {
         PlayerPane.getRowConstraints().addAll(row1, row2);
         //</editor-fold>
 
-        updateHandGrid(PatternPane);
-        updatePowerUps(PatternPane);
+        updateHandGrid(this.PatternPane);
+        updatePowerUps(this.PatternPane);
 
         GridPane CharacterView = Character.getView(100, true);
         PlayerStats.setText(String.format(Main.lang.Lang.PlayerStats, Life, Range, Distance, Danmaku - UsedDanmaku > 500 ? "Infinite" : Integer.toString(Danmaku - UsedDanmaku), SpellCardAvailable ? Main.lang.Lang.Yes : Main.lang.Lang.No, MaxHand));
-        String Path = null;
+        String Path;
         Font fon = null;
         try {
             Path = (new File("src/Fonts/Danmaku.ttf")).getCanonicalPath();
             fon = Font.loadFont(new FileInputStream(new File(Path)), 110);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         PlayerStats.setFont(fon);
         PlayerStats.getStylesheets().add("Model/TextArea.css");
@@ -307,16 +309,15 @@ public class Player {
         PlayerPane.add(PlayerStats, 0, 0);
         PlayerPane.add(RoleView, 2, 1);
         PlayerPane.add(HandCards, 0, 0);
-        PlayerPane.setRowSpan(PlayerStats, 2);
-        PlayerPane.setColumnSpan(PlayerStats, 3);
+        GridPane.setRowSpan(PlayerStats, 2);
+        GridPane.setColumnSpan(PlayerStats, 3);
         PlayerStats.toFront();
-        updateRole(PatternPane);
 
-        SetOnMouse__ViewZoom(PatternPane, RoleView, Role, bln, Main.H * 0.5221476510067114 / 590 * 100);
-        SetOnMouse__ViewZoom(PatternPane, CharacterView, Character, true, Main.H * 0.5221476510067114 / 420 * 100);
+        updateRole(this.PatternPane);
+
+        SetOnMouse__ViewZoom(this.PatternPane, CharacterView, Character, true, Main.H * 0.5221476510067114 / 420 * 100);
         PlayerPane.setStyle("-fx-background-image: url('Images/InGame/PlayerTable.png'); -fx-background-size: stretch");
         PlayerPane.setScaleX(0.99);
-        PlayerView = PlayerPane;
         return PlayerView;
     }
 
@@ -365,7 +366,7 @@ public class Player {
 
     /** Checks if Player can Play Danmaku Cards
      *
-     * @return
+     * @return true if player can Play Danmaku Card
      */
     public boolean canPlayDanmaku() {
         return Danmaku > UsedDanmaku;
@@ -400,9 +401,7 @@ public class Player {
     public void addPowerup(DeckCard P) {
         int n = powerUp.length;
         DeckCard[] newPowerUp = new DeckCard[n + 1];
-        for (int i = 0; i < n; i++) {
-            newPowerUp[i] = powerUp[i];
-        }
+        System.arraycopy(powerUp, 0, newPowerUp, 0, n);
         newPowerUp[n] = P;
         setPowerUp(newPowerUp);
         updatePowerUps(PatternPane);
@@ -424,9 +423,7 @@ public class Player {
     public void drawCard(DeckCard Draw) {
         int n = Hand.length;
         DeckCard[] newHand = new DeckCard[n + 1];
-        for (int i = 0; i < n; i++) {
-            newHand[i] = Hand[i];
-        }
+        System.arraycopy(Hand, 0, newHand, 0, n);
         newHand[n] = Draw;
         setHand(newHand);
     }
@@ -434,22 +431,21 @@ public class Player {
     /** Modify Player's Life in a specific amount
      * it will never be less than 0 or higher than
      * Player's max life
-     * @param amount
+     * @param amount how much life is going to be added
      */
     public void ModifyLife(int amount) {
         if (Battle.getCurrentIncident() != null)
             if (Battle.getCurrentIncident().getID() == 14 && amount > 0)
                 return;
         int CardsToDraw = Life > -amount ? -amount : Life;
-        ;
         Life += amount;
         if (amount < 0) {
             Main.audio.playSFX("se_loselife");
             Pane pane = new Pane();
             pane.setStyle("-fx-background-color: rgba(255,0,0,0.4)");
             PlayerView.add(pane, 0, 0);
-            PlayerView.setRowSpan(pane, 2);
-            PlayerView.setColumnSpan(pane, 3);
+            GridPane.setRowSpan(pane, 2);
+            GridPane.setColumnSpan(pane, 3);
             pane.toFront();
             Timeline tl = new Timeline();
             KeyValue k0 = new KeyValue(PlayerView.translateXProperty(), 0);
@@ -478,8 +474,8 @@ public class Player {
             Pane pane = new Pane();
             pane.setStyle("-fx-background-color: rgba(0,255,0,0.4)");
             PlayerView.add(pane, 0, 0);
-            PlayerView.setRowSpan(pane, 2);
-            PlayerView.setColumnSpan(pane, 3);
+            GridPane.setRowSpan(pane, 2);
+            GridPane.setColumnSpan(pane, 3);
             pane.toFront();
             Timeline tl = new Timeline();
             KeyValue k0 = new KeyValue(PlayerView.translateXProperty(), 0);
@@ -554,13 +550,13 @@ public class Player {
      */
     private void updateRole(Pane PatternPane) {
         RoleView = Role.getView(70.2380952381, Role.isRevealed());
-        SetOnMouse__ViewZoom(PatternPane, RoleView, Role, player || Role.isRevealed(), Main.H * 0.5221476510067114 / 590 * 100);
         if (PlayerView != null) {
             RoleView.setTranslateX(0);
             RoleView.setTranslateY(0);
             RoleView.setRotate(0);
             PlayerView.getChildren().remove(RoleView);
             PlayerView.add(RoleView, 2, 1);
+            SetOnMouse__ViewZoom(this.PatternPane, RoleView, Role, player || Role.isRevealed(), Main.H * 0.5221476510067114 / 590 * 100);
         }
     }
 
@@ -596,12 +592,8 @@ public class Player {
                     return null;
                 }
             };
-            sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                @Override
-                public void handle(WorkerStateEvent event) {
-                    PatternPane.getChildren().add(card.getView(size_percentage, bln));
-                }
-            });
+
+            sleeper.setOnSucceeded(event -> PatternPane.getChildren().add(card.getView(size_percentage, bln)));
             thread = new Thread(sleeper);
             thread.start();
         });
@@ -609,11 +601,12 @@ public class Player {
         View.setOnMouseExited(e -> {
             try {
                 thread.stop();
+                ;
                 if (PatternPane.getChildren().size() > 2)
                     PatternPane.getChildren().remove(1, PatternPane.getChildren().size());
                 else if (PatternPane.getChildren().size() == 2)
                     PatternPane.getChildren().remove(1);
-            } catch (NullPointerException error) {
+            } catch (NullPointerException ignored) {
             }
         });
 
@@ -623,7 +616,7 @@ public class Player {
     /** Turns On/Off Visibility of Player's Stats
      */
     public void viewStats() {
-        StatsVisible = !StatsVisible ? true : false;
+        StatsVisible = !StatsVisible;
         PlayerStats.setVisible(StatsVisible);
     }
 }

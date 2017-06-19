@@ -1,14 +1,12 @@
 package Controller;
 
 import Model.*;
-import Views.Scene_Battle;
+import Views.Scenes.Scene_Battle;
 import Views.StackPane_Shuffling;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -67,7 +65,7 @@ public class Battle {
     //</editor-fold>
 
 
-    public static void start(DeckCard[] Deck, IncidentCard[] IncidentDeck, RoleCard[] RoleDeck, CharacterCard[] CharacterDeck, int CharacterChoice) {
+    public static void start(DeckCard[] Deck, RoleCard[] RoleDeck, CharacterCard[] CharacterDeck, int CharacterChoice) {
         Scene scene = Scene_Battle.scene();
 
         Main.setNewScene(scene);
@@ -87,7 +85,7 @@ public class Battle {
                 };
                 sleeper.setOnSucceeded(e -> {
                     setDeck(Deck);
-                    setIncidentDeck(IncidentDeck);
+                    setIncidentDeck(IncidentCard.generateIncidentDeck());
                     setPlayers(RoleDeck, CharacterDeck, CharacterChoice);
                     BackGroudPane.getChildren().add(MainPane);
                     MainGrid.add(CentralGrid, 1, 1);
@@ -605,9 +603,9 @@ public class Battle {
             setDeck(newDeck);
             final int remainCard = NofCards - 1;
             if (remainCard != 0 && patchouliRoute)
-                DrawAnimation(player, FromDeck, remainCard, patchouliRoute);
+                DrawAnimation(player, FromDeck, remainCard, true);
             else if (remainCard != 0)
-                DrawAnimation(player, FromDeck, remainCard, patchouliRoute);
+                DrawAnimation(player, FromDeck, remainCard, false);
             if (remainCard == 0 && patchouliRoute)
                 MatchStart();
         });

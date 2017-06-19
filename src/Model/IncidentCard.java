@@ -12,12 +12,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class IncidentCard extends Card {
+
+    private static boolean LilyWhite =true;
 
     public IncidentCard(int ID) {
         super("Incident", ID);
@@ -26,13 +29,14 @@ public class IncidentCard extends Card {
         Description = text[1];
     }
 
-    public static IncidentCard[] shuffle(IncidentCard[] toShuffle) {
+    @NotNull
+    private static IncidentCard[] shuffle(IncidentCard[] toShuffle) {
         List<IncidentCard> CardList = Arrays.asList(toShuffle);
         Collections.shuffle(CardList);
         return CardList.toArray(new IncidentCard[CardList.size()]);
     }
 
-    public static IncidentCard[] generateIncidentDeck(Boolean LilyWhite) {
+    public static IncidentCard[] generateIncidentDeck() {
         int N = LilyWhite ? 16 : 15;
         IncidentCard[] Deck = new IncidentCard[N];
         for (int i = 0; i < N; i++) {
@@ -42,6 +46,9 @@ public class IncidentCard extends Card {
         return Deck;
     }
 
+    public static void setLilyWhite(boolean bln){
+        LilyWhite = bln;
+    }
     public void IncidentFunction(Player Heroine, Player[] players, Player CurrentPlayer, int CurrentTurn, boolean IncidentJustStarted) {
         switch (ID) {
             case 1:
@@ -107,14 +114,11 @@ public class IncidentCard extends Card {
             Timeline timeline = Battle.getFlipAnimation();
             timeline.setOnFinished(e -> {
                 DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length + 1];
-                for (int i = 0; i < newUsedDeck.length - 1; i++) {
-                    newUsedDeck[i] = Battle.getUsedCard()[i];
-                }
+                System.arraycopy(Battle.getUsedCard(), 0, newUsedDeck, 0, newUsedDeck.length - 1);
                 newUsedDeck[newUsedDeck.length - 1] = FlippingCard;
                 Battle.setUsedDeck(newUsedDeck);
                 DeckCard[] newDeck = new DeckCard[Deck.length - 1];
-                for (int i = 0; i < newDeck.length; i++)
-                    newDeck[i] = Deck[i];
+                System.arraycopy(Deck, 0, newDeck, 0, newDeck.length);
                 Battle.setDeck(newDeck);
                 if (FlippingCard.getSeason() == 0) {
                     Battle.setTurn(CurrentTurn);
@@ -175,8 +179,7 @@ public class IncidentCard extends Card {
             tl.setOnFinished(f -> {
                         player.drawCard(new DeckCard(Deck[Deck.length - 1].getID()));
                         DeckCard[] newDeck = new DeckCard[Deck.length - 1];
-                        for (int i = 0; i < newDeck.length; i++)
-                            newDeck[i] = Deck[i];
+                System.arraycopy(Deck, 0, newDeck, 0, newDeck.length);
                         Battle.setDeck(newDeck);
                         Battle.nextTurn();
                         if (Battle.getCurrentTurn() == CurrentTurn) {
@@ -273,8 +276,7 @@ public class IncidentCard extends Card {
                 DeckCard[] Deck = Battle.getDeck();
                 CurrentPlayer.drawCard(new DeckCard(Battle.getDeck()[Deck.length - 1].getID()));
                 DeckCard[] newDeck = new DeckCard[Deck.length - 1];
-                for (int i = 0; i < newDeck.length; i++)
-                    newDeck[i] = Deck[i];
+                System.arraycopy(Deck, 0, newDeck, 0, newDeck.length);
                 Battle.setDeck(newDeck);
                 if (CurrentPlayer.getHand().length == Cards_in_hand) {
                     Battle.DrawPhase();
@@ -346,8 +348,7 @@ public class IncidentCard extends Card {
         tl.setOnFinished(e -> {
             playerDrawing.drawCard(new DeckCard(Deck[Deck.length - 1].getID()));
             DeckCard[] newDeck = new DeckCard[Deck.length - 1];
-            for (int i = 0; i < newDeck.length; i++)
-                newDeck[i] = Deck[i];
+            System.arraycopy(Deck, 0, newDeck, 0, newDeck.length);
             Battle.setDeck(newDeck);
             Rekindle_Blazing_Hell(players, players[Battle.getCurrentTurn()], CurrentTurn, true);
         });
@@ -384,7 +385,7 @@ public class IncidentCard extends Card {
         thread.start();
         try {
             thread.join();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
         thread2.start();
     }
@@ -440,14 +441,11 @@ public class IncidentCard extends Card {
         Timeline timeline = Battle.getFlipAnimation();
         timeline.setOnFinished(e -> {
             DeckCard[] newUsedDeck = new DeckCard[Battle.getUsedCard().length + 1];
-            for (int i = 0; i < newUsedDeck.length - 1; i++) {
-                newUsedDeck[i] = Battle.getUsedCard()[i];
-            }
+            System.arraycopy(Battle.getUsedCard(), 0, newUsedDeck, 0, newUsedDeck.length - 1);
             newUsedDeck[newUsedDeck.length - 1] = FlippingCard;
             Battle.setUsedDeck(newUsedDeck);
             DeckCard[] newDeck = new DeckCard[Deck.length - 1];
-            for (int i = 0; i < newDeck.length; i++)
-                newDeck[i] = Deck[i];
+            System.arraycopy(Deck, 0, newDeck, 0, newDeck.length);
             Battle.setDeck(newDeck);
 
             if (FlippingCard.getSeason() == 2) {

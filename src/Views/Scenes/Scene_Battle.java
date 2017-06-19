@@ -1,4 +1,4 @@
-package Views;
+package Views.Scenes;
 
 import Controller.Battle;
 import Controller.Main;
@@ -76,13 +76,15 @@ public class Scene_Battle extends Battle {
         Label[] steps = new Label[]{step1, step2, step3, step4, step5};
         int var3 = steps.length;
 
-        for (int var4 = 0; var4 < var3; ++var4) {
+        int var4 = 0;
+        while (var4 < var3) {
             Label step = steps[var4];
             step.setMaxSize(720.0D, 100.0D);
             step.setMinSize(720.0D, 100.0D);
             step.setFont(new Font("Times New Roman", 65.0D));
             step.setAlignment(Pos.CENTER);
             step.setStyle("-fx-background-color: Brown; -fx-text-fill: white;");
+            ++var4;
         }
 
         HBox Buttons = new HBox(200);
@@ -207,7 +209,7 @@ public class Scene_Battle extends Battle {
         });
         button2.setOnAction(event -> {
             try {
-                BufferedReader FILE = new BufferedReader(new InputStreamReader(Scene_Setup.class.getResourceAsStream("/Controller/SETUP.dat")));
+                BufferedReader FILE = new BufferedReader(new InputStreamReader(Scene_Battle.class.getResourceAsStream("/Controller/SETUP.dat")));
                 String line1 = FILE.readLine();
                 String line2 = FILE.readLine();
                 FILE.close();

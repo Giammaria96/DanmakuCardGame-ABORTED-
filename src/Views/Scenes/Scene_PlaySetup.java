@@ -1,11 +1,14 @@
-package Views;
+package Views.Scenes;
 
+import Controller.Controller_SelectCharacter;
+import Controller.Controller_Tittle;
 import Controller.Main;
 import Language.Language;
 import Model.CharacterCard;
 import Model.DeckCard;
 import Model.IncidentCard;
 import Model.RoleCard;
+import Views.PopUps.PopUp_Error;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -23,7 +26,7 @@ public class Scene_PlaySetup {
     public static Scene scene() {
         Language lang;
         lang = Main.lang.Lang;
-        back.setOnAction(e -> Main.setNewScene(Scene_Title.Scene()));
+        back.setOnAction(e -> new Controller_Tittle());
         StackPane mainPane = new StackPane();
         mainPane.setAlignment(Pos.CENTER);
         mainPane.getChildren().add(back);
@@ -337,9 +340,9 @@ public class Scene_PlaySetup {
                 }
                 CharacterCard[] CharacterDeck = CharacterCard.generateCharacterDeck();
                 DeckCard[] Deck = Model.DeckCard.generateDeck();
-                IncidentCard[] IncidentDeck = IncidentCard.generateIncidentDeck(LilyWhite.isSelected());
+                IncidentCard.setLilyWhite(LilyWhite.isSelected());
                 RoleCard[] RoleDeck = RoleCard.generateRoleCardDeck(Roles);
-                Main.setNewScene(Scene_SelectCharacter.scene(Deck, RoleDeck, CharacterDeck, IncidentDeck));
+                new Controller_SelectCharacter(Deck, RoleDeck, CharacterDeck);
             } else {
                 PopUp_Error.display(lang.NofRolesError);
             }
